@@ -7,9 +7,14 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Stack
-- Vite
+## Need to setup
 - Nodejs 17.4.0
+
+## Technology
+- **React Form hook** - https://www.react-hook-form.com/get-started
+- **Yup** - related to React form hook
+- **Styled components** with Material
+- **Vite**
 
 ## Expanding the ESLint configuration
 
