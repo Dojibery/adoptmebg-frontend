@@ -1,6 +1,6 @@
-import { NavbarComponent } from './index.ts';
 import {styled} from "@mui/material/styles";
 import {useEffect} from "react";
+import DefaultLayer from "../layouts/default-layer.tsx";
 
 export const HomeWrapper = styled('div')(
     ({ theme }) => `
@@ -25,10 +25,9 @@ const HomeDesktop = () => {
     }, []);
 
     return (
-        <HomeWrapper>
-            <NavbarComponent />
-
-        </HomeWrapper>
+       <DefaultLayer>
+           <div>Hello</div>
+       </DefaultLayer>
     );
 }
 

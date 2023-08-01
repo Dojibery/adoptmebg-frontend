@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {Typography, useMediaQuery, useTheme} from "@mui/material";
+import {Button, Stack, Typography, useMediaQuery, useTheme} from "@mui/material";
 import { styled } from '@mui/material/styles';
 import {WEBSITE_TITLE} from "../constants";
 
@@ -35,6 +35,7 @@ export const NavbarContentWrapper = styled('div')(
   width: 70%;
   max-width: 2560px;
   place-items: center;
+  justify-content: space-between;
   ${theme.breakpoints.down('md')} {
     place-content: space-around;
     width: 100%;
@@ -46,12 +47,43 @@ export const NavbarLeft = styled('div')`
   flex: 1;
 `;
 
+export const NavbarCenter = styled(Stack)`
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+`;
+
+export const NavbarRight = styled(Stack)`
+
+`;
+
 const NavbarComponent = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
     // set initial values
     const [scrollDirection, setScrollDirection] = useState('');
+
+    const navBarElements = [
+        {
+            name: 'Осинови',
+            url: '/',
+        },
+        {
+            name: 'Дарения',
+            url: '/donation'
+        },
+        {
+            name: 'Блог',
+            url: 'blog',
+        },
+        {
+            name: 'Контакти',
+            url: 'contact-us'
+        }
+    ]
 
     useEffect(() => {
         let lastScrollY = window.scrollY;
@@ -86,6 +118,20 @@ const NavbarComponent = () => {
                             >{ WEBSITE_TITLE }
                             </Typography>
                         </NavbarLeft>
+
+                        <NavbarCenter>
+                            { navBarElements.map((el) => (
+                                <>
+                                    <span><a href={el.url}>{ el.name }</a></span>
+                                </>
+                            ))}
+                        </NavbarCenter>
+
+                        <NavbarRight>
+                            <Button sx={{
+                                cursor: 'pointer'
+                            }}>Вписване</Button>
+                        </NavbarRight>
                     </>
                 )}
             </NavbarContentWrapper>
