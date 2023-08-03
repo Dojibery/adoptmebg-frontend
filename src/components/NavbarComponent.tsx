@@ -32,10 +32,10 @@ export const NavbarContentWrapper = styled('div')(
     ({ theme }) => `
   display: flex;
   height: 100%;
-  width: 70%;
+  width: 100%;
   max-width: 2560px;
   place-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   ${theme.breakpoints.down('md')} {
     place-content: space-around;
     width: 100%;
@@ -44,7 +44,7 @@ export const NavbarContentWrapper = styled('div')(
 );
 
 export const NavbarLeft = styled('div')`
-  flex: 1;
+  display: flex;
 `;
 
 export const NavbarCenter = styled(Stack)`
@@ -52,10 +52,22 @@ export const NavbarCenter = styled(Stack)`
   flex-flow: row;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 18px;
+  font-size: 17px;
+  fontFamily:'Roboto'
+
 `;
 
 export const NavbarRight = styled(Stack)`
+    display: flex;
+    flex-direction: row;
+    
+    .user-photo {
+      background-color: #535bf2;
+      border-radius: 50%;
+      width: 50px;
+      height: auto;
+    }
 
 `;
 
@@ -131,6 +143,7 @@ const NavbarComponent = () => {
                             <Button sx={{
                                 cursor: 'pointer'
                             }}>Вписване</Button>
+                            <div className={'user-photo'}>SP</div>
                         </NavbarRight>
                     </>
                 )}
