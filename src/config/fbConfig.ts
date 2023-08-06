@@ -1,0 +1,16 @@
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+
+const firebaseConfig = {
+  apiKey: '',
+  authDomain: '',
+  projectId: '',
+  storageBucket: '',
+  messagingSenderId: '',
+  appId: '',
+};
+
+firebase.initializeApp(firebaseConfig);
+firebase.firestore();
+
+export default firebase;
