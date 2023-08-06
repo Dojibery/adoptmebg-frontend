@@ -1,25 +1,28 @@
-export const signIn = (credentials: never) => {
-    return (dispatch, getState, {getFirebase}) => {
-        const firebase = getFirebase();
+export const signIn = (credentials: any) => {
+  // @ts-ignore
+  return (dispatch, getState, { getFirebase }) => {
+    const firebase = getFirebase();
 
-        firebase.auth().signInWithEmailAndPassword(
-            credentials.email,
-            credentials.password
-        ).then(() => {
-            dispatch({ type: 'LOGIN_SUCCESS' });
-        }).catch((err) => {
-            dispatch({ type: 'LOGIN_ERROR', err });
-        });
+    firebase.auth().signInWithEmailAndPassword(
+      credentials.email,
+      credentials.password
+    ).then(() => {
+      dispatch({ type: 'LOGIN_SUCCESS' });
+    }).catch((err: any) => {
+      dispatch({ type: 'LOGIN_ERROR',
+        err });
+    });
 
-    }
-}
+  };
+};
 
 export const signOut = () => {
-    return (dispatch: unknown, getState: unknown, {getFirebase}: unknown) => {
-        const firebase = getFirebase();
+  // @ts-ignore
+  return (dispatch, getState: unknown, { getFirebase }: unknown) => {
+    const firebase = getFirebase();
 
-        firebase.auth().signOut().then(() => {
-            dispatch({ type: 'SIGNOUT_SUCCESS' })
-        });
-    }
-}
+    firebase.auth().signOut().then(() => {
+      dispatch({ type: 'SIGNOUT_SUCCESS' });
+    });
+  };
+};
