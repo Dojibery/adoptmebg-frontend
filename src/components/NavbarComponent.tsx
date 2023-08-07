@@ -1,10 +1,10 @@
-import {useEffect, useState} from "react";
-import {Button, Stack, Typography, useMediaQuery, useTheme} from "@mui/material";
+import { useEffect, useState } from 'react';
+import { Button, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import {WEBSITE_TITLE} from "../constants";
+import { WEBSITE_TITLE } from '../constants';
 
 export const Navbar = styled('div')<{hideMobileNavBar: boolean}>(
-    ({ theme, hideMobileNavBar }) => `
+  ({ theme, hideMobileNavBar }) => `
   display: flex;
   position: fixed;
   top: 0;
@@ -29,7 +29,7 @@ export const Navbar = styled('div')<{hideMobileNavBar: boolean}>(
 );
 
 export const NavbarContentWrapper = styled('div')(
-    ({ theme }) => `
+  ({ theme }) => `
   display: flex;
   height: 100%;
   width: 100%;
@@ -72,84 +72,84 @@ export const NavbarRight = styled(Stack)`
 `;
 
 const NavbarComponent = () => {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-    // set initial values
-    const [scrollDirection, setScrollDirection] = useState('');
+  // set initial values
+  const [scrollDirection, setScrollDirection] = useState('');
 
-    const navBarElements = [
-        {
-            name: 'Осинови',
-            url: '/',
-        },
-        {
-            name: 'Дарения',
-            url: '/donation'
-        },
-        {
-            name: 'Блог',
-            url: 'blog',
-        },
-        {
-            name: 'Контакти',
-            url: 'contact-us'
-        }
-    ]
+  const navBarElements = [
+    {
+      name: 'Осинови',
+      url: '/',
+    },
+    {
+      name: 'Дарения',
+      url: '/donation'
+    },
+    {
+      name: 'Блог',
+      url: 'blog',
+    },
+    {
+      name: 'Контакти',
+      url: 'contact-us'
+    }
+  ];
 
-    useEffect(() => {
-        let lastScrollY = window.scrollY;
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
 
-        const updateScrollDirection = () => {
-            const { scrollY } = window;
-            const direction = scrollY > lastScrollY ? 'down' : 'up';
-            if (direction !== scrollDirection && (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)) {
-                setScrollDirection(direction);
-            }
-            lastScrollY = scrollY > 0 ? scrollY : 0;
-        };
-        window.addEventListener('scroll', updateScrollDirection); // add event listener
-        return () => {
-            window.removeEventListener('scroll', updateScrollDirection); // clean up
-        };
-    }, [scrollDirection]);
+    const updateScrollDirection = () => {
+      const { scrollY } = window;
+      const direction = scrollY > lastScrollY ? 'down' : 'up';
+      if (direction !== scrollDirection && (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)) {
+        setScrollDirection(direction);
+      }
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+    };
+    window.addEventListener('scroll', updateScrollDirection); // add event listener
+    return () => {
+      window.removeEventListener('scroll', updateScrollDirection); // clean up
+    };
+  }, [scrollDirection]);
 
-    return (
-        <Navbar hideMobileNavBar={scrollDirection === 'down' && isMobile}>
-            <NavbarContentWrapper>
-                {!isMobile && (
-                    <>
-                        <NavbarLeft>
-                            <Typography
-                                color={theme.palette.white}
-                                fontFamily='Roboto'
-                                style={{
-                                    cursor: 'pointer',
-                                    maxWidth: '180px',
-                                }}
-                            >{ WEBSITE_TITLE }
-                            </Typography>
-                        </NavbarLeft>
+  return (
+    <Navbar hideMobileNavBar={scrollDirection === 'down' && isMobile}>
+      <NavbarContentWrapper>
+        {!isMobile && (
+          <>
+            <NavbarLeft>
+              <Typography
+                color={theme.palette.white}
+                fontFamily='Roboto'
+                style={{
+                  cursor: 'pointer',
+                  maxWidth: '180px',
+                }}
+              >{ WEBSITE_TITLE }
+              </Typography>
+            </NavbarLeft>
 
-                        <NavbarCenter>
-                            { navBarElements.map((el) => (
-                                <>
-                                    <span><a href={el.url}>{ el.name }</a></span>
-                                </>
-                            ))}
-                        </NavbarCenter>
+            <NavbarCenter>
+              { navBarElements.map((el) => (
+                <>
+                  <span><a href={el.url}>{ el.name }</a></span>
+                </>
+              ))}
+            </NavbarCenter>
 
-                        <NavbarRight>
-                            <Button sx={{
-                                cursor: 'pointer'
-                            }}>Вписване</Button>
-                            <div className={'user-photo'}>SP</div>
-                        </NavbarRight>
-                    </>
-                )}
-            </NavbarContentWrapper>
-        </Navbar>
-    );
+            <NavbarRight>
+              <Button sx={{
+                cursor: 'pointer'
+              }}>Вписване</Button>
+              <div className={'user-photo'}>SP</div>
+            </NavbarRight>
+          </>
+        )}
+      </NavbarContentWrapper>
+    </Navbar>
+  );
 };
 
 export default NavbarComponent;
