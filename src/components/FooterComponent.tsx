@@ -2,15 +2,21 @@ import { styled } from '@mui/material/styles';
 
 
 export const Footer = styled('div')`
-    background-color: white;
+  width: 100%;
+  display: block;
+  position: fixed;
+  bottom: 0;
+  height: auto;
+  width: 100%;
+  background: #000;
 `;
 
 export const FooterSection = styled('div')`
-    padding: 4rem 4rem ;
+    padding: 0rem 4rem ;
 `;
 
 export const FooterLinks = styled('div')`
-    display: flex;
+  display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-direction: row;
@@ -18,6 +24,14 @@ export const FooterLinks = styled('div')`
   width: 100%;
   text-align: left;
   margin-bottom: 2rem;
+  font-size: 14px;
+  font-weight: 500;
+  h4 {
+    color: #E4A43F;
+  }
+  p {
+    margin: 5px;
+  }
 `;
 
 export const FooterLinksDiv = styled('div')`
@@ -29,23 +43,24 @@ export const FooterLinksDiv = styled('div')`
   color: black;
 `;
 export const FooterBelow = styled('div')`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
+  display: block;
   margin-top: 0.2rem;
+  p {
+    margin: 0;
+  }
 `;
 export const FooterCopyright = styled('div')`
  font-size: 13px;
   line-height: 15px;
   color: #1a1a1a;
   font-weight: 600;
+  margin-bottom: 20px;
 `;
 export const FooterPrivacy = styled('div')`
  font-size: 13px;
   line-height: 15px;
-  color: #1a1a1a;
-  margin-left: 2rem;
   font-weight: 600;
+  margin-bottom: 10px;
 `;
 
 
@@ -100,14 +115,13 @@ const FooterComponent = ()=>{
         </FooterLinks>
       </FooterSection>
 
-      <hr></hr>
-
       <FooterBelow>
         <FooterPrivacy>
           <a href=''><p>Privacy policy</p></a>
         </FooterPrivacy>
         <FooterCopyright>
-          <p>Copyright @{new Date().getFullYear()} Осиновяване на животни - Осинови ме Powered by Осиновяване на животни - Осинови ме </p>
+          <p>Copyright @{new Date().getFullYear()} Осиновяване на животни - Осинови ме </p>
+          <p>Powered by Осиновяване на животни - Осинови ме</p>
         </FooterCopyright>
       </FooterBelow>
     </Footer>
