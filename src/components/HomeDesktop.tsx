@@ -52,7 +52,7 @@ const HomeDesktop: React.FC<Props> = ({ animals, firebase }) => {
   );
 };
 
-export default compose(
+export default compose<React.FC<Props>>(
   firestoreConnect(['animals']),
   // @ts-ignore
   connect((state: any, props) => ({
