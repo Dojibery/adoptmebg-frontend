@@ -1,8 +1,11 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 
 // https://vitejs.dev/config/
-export default defineConfig(({ command }) => {
+export default defineConfig(({ command, mode }) => {
+  const env = loadEnv(mode, process.cwd(), '');
+  // Load env file based on `mode` in the current working directory.
+  // Set the third parameter to '' to load all env regardless of the `VITE_` prefix.
   const config = {
     plugins: [react()],
     build: {
@@ -21,7 +24,7 @@ export default defineConfig(({ command }) => {
   };
 
   if (command !== 'serve') {
-    config.base = '/adoptmebg-frontend/';
+    config.host = env.VITE_BASE_URL;
   }
 
 
