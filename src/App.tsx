@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import firebase from './config/fbConfig'; // Adjust the import path according to your project structure
 
 // Now you can use the imported 'firebase' object to access Firebase services
-const firestore = firebase.firestore();
+firebase.firestore();
 
 import './App.css';
 

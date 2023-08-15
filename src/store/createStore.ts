@@ -1,7 +1,6 @@
 import { applyMiddleware, compose, legacy_createStore } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/rootReducer.ts';
-import fbConfig from '../config/fbConfig.ts';
 
 export default function createReduxStore(initialState = {}) {
   // ======================================================
@@ -20,11 +19,11 @@ export default function createReduxStore(initialState = {}) {
   // ======================================================
   // Middleware Configuration
   // ======================================================
-  const middleware = [
-    // thunk.withExtraArgument({ getFirebase,
-    //   getFirestore },),
-    // This is where you add other middleware like redux-observable
-  ];
+  // const middleware = [
+  // thunk.withExtraArgument({ getFirebase,
+  //   getFirestore },),
+  // This is where you add other middleware like redux-observable
+  // ];
 
   // ======================================================
   // Store Instantiation and HMR Setup
