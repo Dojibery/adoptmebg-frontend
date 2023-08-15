@@ -24,7 +24,7 @@ export default defineConfig(({ command, mode }) => {
   };
 
   if (command !== 'serve') {
-    config.host = env.VITE_BASE_URL;
+    config.base = env.VITE_BASE_URL;
   }
 
 
