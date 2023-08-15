@@ -21,18 +21,10 @@ export const HomeWrapper = styled('div')(
 `,
 );
 
-interface Props {
-    animals?: any;
-    firebase?: any;
-}
-
-const HomeDesktop: React.FC<Props> = ({ animals, firebase }) => {
+const HomeDesktop: React.FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    console.log('animals', animals);
-    console.log('firebase', firebase);
-
     // Auth with system account
     dispatch(
       signIn({
