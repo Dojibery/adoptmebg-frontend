@@ -6,21 +6,18 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ["react", "react-router", "react-router-dom", "react-redux"],
+      external: ['react', 'react-router', 'react-router-dom', 'react-redux'],
       output: {
         globals: {
-          react: "React",
-          "react-router": "ReactRouter",
-          "react-router-dom": "ReactRouterDOM",
-          "react-redux": "ReactRedux",
+          'react': 'React',
+          'react-router': 'ReactRouter',
+          'react-router-dom': 'ReactRouterDOM',
+          'react-redux': 'ReactRedux',
         },
       },
     },
   },
+  base: import.meta.env.VITE_DEV ? '/' : '/adoptmebg-frontend/'
 });
-
-
-
-
 
 
