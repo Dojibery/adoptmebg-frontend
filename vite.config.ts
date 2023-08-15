@@ -24,6 +24,7 @@ export default defineConfig(({ command, mode }) => {
   };
 
   if (command !== 'serve') {
+    // @ts-ignore
     config.base = env.VITE_BASE_URL;
   }
 
