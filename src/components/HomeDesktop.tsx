@@ -1,11 +1,8 @@
 import { styled } from '@mui/material/styles';
 import { useEffect } from 'react';
 import DefaultLayer from '../layouts/default-layer.tsx';
-import { firestoreConnect } from 'react-redux-firebase';
 import { signIn } from '../store/actions/authActions.ts';
 import { useAppDispatch } from '../hooks/redux-hooks.ts';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
 
 export const HomeWrapper = styled('div')(
   ({ theme }) => `
@@ -52,10 +49,4 @@ const HomeDesktop: React.FC<Props> = ({ animals, firebase }) => {
   );
 };
 
-export default compose<React.FC<Props>>(
-  firestoreConnect(['animals']),
-  // @ts-ignore
-  connect((state: any, props) => ({
-    animals: state.firestore.ordered
-  }))
-)(HomeDesktop);
+export default HomeDesktop;

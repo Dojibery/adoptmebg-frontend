@@ -1,5 +1,5 @@
 import { RootState } from '../reducers/rootReducer.ts';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
 interface Credentials {
   email: string;
@@ -8,7 +8,7 @@ interface Credentials {
 
 export const signIn = (credentials: Credentials) => {
   // @ts-ignore
-  return (dispatch: Dispatch<any>, getState: () => RootState, { getFirebase }) => {
+  return (dispatch: Dispatch<any>, getState: () => RootState) => {
     const auth = getAuth();
     signInWithEmailAndPassword(
       auth,
@@ -24,12 +24,12 @@ export const signIn = (credentials: Credentials) => {
   };
 };
 
-export const signOut = () => {
+export const logOut = () => {
   // @ts-ignore
-  return (dispatch: Dispatch<any>, getState: () => RootState, { getFirebase }: unknown) => {
-    const firebase = getFirebase();
+  return (dispatch: Dispatch<any>, getState: () => RootState) => {
+    const auth = getAuth();
 
-    firebase.auth().signOut().then(() => {
+    signOut(auth).then(() => {
       dispatch({ type: 'SIGNOUT_SUCCESS' });
     });
   };
