@@ -2,15 +2,15 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDBMyNGaGnBw8p6VRoY5xfvleXmMsvAjeg',
-  authDomain: 'dogadoption-dcd38.firebaseapp.com',
-  projectId: 'dogadoption-dcd38',
-  storageBucket: 'dogadoption-dcd38.appspot.com',
-  messagingSenderId: '989422506607',
-  appId: '1:989422506607:web:a7a71c9ec30026d215739a',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 firebase.initializeApp(firebaseConfig);
-firebase.firestore();
+firebase.firestore().settings({});
 
 export default firebase;

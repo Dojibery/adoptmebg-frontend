@@ -17,7 +17,7 @@ export type AppDispatch = typeof store.dispatch;
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.VITE_BASE_URL}>
       <App store={store}/>
     </BrowserRouter>
   </React.StrictMode>,
