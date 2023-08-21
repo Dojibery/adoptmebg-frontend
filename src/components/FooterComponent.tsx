@@ -3,7 +3,7 @@ import { Link, Typography } from '@mui/material';
 import { BiLogoFacebookCircle } from 'react-icons/bi';
 import { AiFillInstagram } from 'react-icons/ai';
 import { BsFillEnvelopeAtFill } from 'react-icons/bs';
-// import { logo } from '../assets/images/play-store-logo.png';
+import  logo  from '../assets/images/play-store-logo.png';
 
 
 export const Footer = styled('div')`
@@ -46,10 +46,12 @@ export const FooterLinksDiv = styled('div')`
   justify-content: flex-start;
   flex-direction: column;
   color: black;
+  text-align: center;
 `;
 
 export const FooterSocialMediaDiv = styled('div')`
 display: flex;
+  justify-content: center;
 `;
 export const FooterBelow = styled('div')`
   display: block;
@@ -124,7 +126,8 @@ const FooterComponent = ()=>{
           <FooterLinksDiv>
             <Typography variant={'h4'}>Мобилно приложение</Typography>
             <Link href={'#'}>
-              <img src=''/>
+              <img style={{ width:'50%',
+                marginTop: '10px' }} alt={'a'} src={logo} loading={'lazy'}></img>
             </Link>
           </FooterLinksDiv>
         </FooterLinks>
