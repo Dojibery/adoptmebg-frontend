@@ -1,4 +1,9 @@
 import { styled } from '@mui/material/styles';
+import { Link, Typography } from '@mui/material';
+import { BiLogoFacebookCircle } from 'react-icons/bi';
+import { AiFillInstagram } from 'react-icons/ai';
+import { BsFillEnvelopeAtFill } from 'react-icons/bs';
+// import { logo } from '../assets/images/play-store-logo.png';
 
 
 export const Footer = styled('div')`
@@ -35,12 +40,16 @@ export const FooterLinks = styled('div')`
 `;
 
 export const FooterLinksDiv = styled('div')`
-    width: 150px;
-    margin: 1rem;
+  width: 25%;
+  margin: 1rem 0 1rem 0;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   color: black;
+`;
+
+export const FooterSocialMediaDiv = styled('div')`
+display: flex;
 `;
 export const FooterBelow = styled('div')`
   display: block;
@@ -71,57 +80,63 @@ const FooterComponent = ()=>{
       <FooterSection>
         <FooterLinks>
           <FooterLinksDiv>
-            <h4>Често задавани въпроси</h4>
-            <a href=''>
-              <p>Защо не разбрах по-рано</p>
-            </a>
+            <Typography variant={'h4'}>Често задавани въпроси</Typography>
+            <Link href={'#'}>
+              <Typography style={{ color:'white' }}>Защо не разбрах по-рано</Typography>
+            </Link>
           </FooterLinksDiv>
           <FooterLinksDiv>
-            <h4>Меню</h4>
-            <a href=''>
-              <p>Осинови</p>
-            </a>
-            <a href=''>
-              <p>За нас</p>
-            </a>
-            <a href=''>
-              <p>Блог</p>
-            </a>
-            <a href=''>
-              <p>Дарения</p>
-            </a>
-            <a href=''>
-              <p>Контакти</p>
-            </a>
+            <Typography variant={'h4'}>Меню</Typography>
+            <Link href={'#'}>
+              <Typography style={{ color:'white' }}>Осинови</Typography>
+            </Link>
+            <Link href={'#'}>
+              <Typography style={{ color:'white' }}>За нас</Typography>
+            </Link>
+            <Link href={'#'}>
+              <Typography style={{ color:'white' }}>Блог</Typography>
+            </Link>
+            <Link href={'#'}>
+              <Typography style={{ color:'white' }}>Дарения</Typography>
+            </Link>
+            <Link href={'#'}>
+              <Typography style={{ color:'white' }}>Контакти</Typography>
+            </Link>
           </FooterLinksDiv>
           <FooterLinksDiv>
-            <h4>Контакти</h4>
-            <a href=''>
-              <p>info@adoptmebg.com</p>
-            </a>
-            <a href=''>
-              <p><img src='' alt='facebook'/></p>
-            </a>
-            <a href=''>
-              <p><img src='' alt='instagram'/></p>
-            </a>
+            <Typography variant={'h4'}>Контакти</Typography>
+            <Link href={'#'} >
+              <Typography style={{ color:'white' }}><BsFillEnvelopeAtFill style={{ color:'white' }}/> info@adoptmebg.com</Typography>
+            </Link>
+            <FooterSocialMediaDiv>
+              <Link href={'#'}>
+                <BiLogoFacebookCircle style = {{ color: 'white',
+                  fontSize: '30px',
+                  padding: '10px 10px 10px 0' }}/>
+              </Link>
+              <Link href={'#'}>
+                <AiFillInstagram style = {{ color: 'white',
+                  fontSize: '30px',
+                  padding: '10px' }}/>
+              </Link>
+            </FooterSocialMediaDiv>
           </FooterLinksDiv>
           <FooterLinksDiv>
-            <h4>Мобилно приложение</h4>
-            <a href=''>
-              <p>App</p>
-            </a>
+            <Typography variant={'h4'}>Мобилно приложение</Typography>
+            <Link href={'#'}>
+              <img src=''/>
+            </Link>
           </FooterLinksDiv>
         </FooterLinks>
       </FooterSection>
 
       <FooterBelow>
         <FooterPrivacy>
-          <a href=''><p>Privacy policy</p></a>
+          <Link href={'#'}><Typography style={{ color:'white' }}>Privacy policy</Typography></Link>
         </FooterPrivacy>
         <FooterCopyright>
-          <p>Copyright @{new Date().getFullYear()} Осиновяване на животни - Осинови ме </p>
-          <p>Powered by Осиновяване на животни - Осинови ме</p>
+          <Typography style={{ color:'white' }}>Copyright @{new Date().getFullYear()} Осиновяване на животни - Осинови ме </Typography>
+          <Typography style={{ color:'white' }}>Powered by Осиновяване на животни - Осинови ме</Typography>
         </FooterCopyright>
       </FooterBelow>
     </Footer>
