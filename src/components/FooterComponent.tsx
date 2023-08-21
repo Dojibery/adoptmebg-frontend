@@ -53,6 +53,14 @@ export const FooterSocialMediaDiv = styled('div')`
 display: flex;
   justify-content: center;
 `;
+
+export const GooglePlayLogo = styled('div')`
+  img {
+    width: 50%;
+    margin-top: 10px;
+  }
+`;
+
 export const FooterBelow = styled('div')`
   display: block;
   margin-top: 0.2rem;
@@ -126,8 +134,9 @@ const FooterComponent = ()=>{
           <FooterLinksDiv>
             <Typography variant={'h4'}>Мобилно приложение</Typography>
             <Link href={'#'}>
-              <img style={{ width:'50%',
-                marginTop: '10px' }} alt={'a'} src={logo} loading={'lazy'}></img>
+              <GooglePlayLogo>
+                <img alt={'Download mobile app'} src={logo} loading={'lazy'}></img>
+              </GooglePlayLogo>
             </Link>
           </FooterLinksDiv>
         </FooterLinks>
